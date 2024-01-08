@@ -1,15 +1,14 @@
 % structs
-footballTeam = {
-'Fenerbahce'  true  4 3;
-'Galatasaray' false 2 2;
-'Besiktas'    true  2 1;
-'Trabzonspor' true  0 3;
-}
+TeamA = struct('Rakip', '', 'EvSahibi', false, 'TeamSkor', 0.0, 'RakipSkor', 0.0);
+TeamA(1) = struct('Rakip', 'Fenerbahce', 'EvSahibi', true, 'TeamSkor', 4, 'RakipSkor', 3);
+TeamA(2) = struct('Rakip', 'Galatasaray', 'EvSahibi', false, 'TeamSkor', 2, 'RakipSkor', 2);
+TeamA(3) = struct('Rakip', 'Besiktas', 'EvSahibi', true, 'TeamSkor', 2, 'RakipSkor', 1);
+TeamA(4) = struct('Rakip', 'Trabzonspor', 'EvSahibi', true, 'TeamSkor', 0, 'RakipSkor', 3);
 
-DS = footballTeam(9:12)
-RS = footballTeam(13:16)
+TS = [TeamA.TeamSkor]
+RS = [TeamA.RakipSkor]
 
-sum(cell2mat(DS) > cell2mat(RS))
+sum(TS > RS)
 
 % 2D Line Plot
 % y=9x^4-6x^3+3x^2-4x+2 and 0 <= x <= 2
