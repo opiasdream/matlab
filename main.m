@@ -11,7 +11,7 @@ RS = footballTeam(13:16)
 
 sum(cell2mat(DS) > cell2mat(RS))
 
-% Plotting a Function
+% 2D Line Plot
 % y=9x^4-6x^3+3x^2-4x+2 and 0 <= x <= 2
 x = 0:0.01:2;
 y = 9*x.^4 - 6*x.^3 + 3*x.^2 - 4*x + 2;
@@ -28,7 +28,23 @@ end
 
 result = integral(@myFunction, 0, 4, 'AbsTol', 1e-4);
 
+% Symbolic Computation
+% 1
+syms x y z
+eq1 = 2*x - 3*y + 4*z == 5;
+eq2 = y + 4*z + x == 10;
+eq3 = -2*z + 3*x + 4*y == 0;
+[x,y,z] = solve(eq1, eq2, eq3, x, y, z);
+x_d = double(x), y_d = double(y), z_d = double(z)
 
-
+% 2
+syms x
+y = (x * sin(x))/(1 + x ^ 2);
+dy = diff(y);
+% values of dy expression for values from 1 to 10
+x = 1:10
+dyp = subs(dy, x)
+% line plot
+plot(x,dyp)
 
 
