@@ -1,3 +1,8 @@
+M = [2,6,9,7; 5,11,13,1; 6,7,17,8];
+M(~isprime(M)) = 0
+[i,j] = find(M>9)
+M(j,i)
+
 % structs
 TeamA = struct('Rakip', '', 'EvSahibi', false, 'TeamSkor', 0.0, 'RakipSkor', 0.0);
 TeamA(1) = struct('Rakip', 'Fenerbahce', 'EvSahibi', true, 'TeamSkor', 4, 'RakipSkor', 3);
@@ -45,5 +50,24 @@ x = 1:10
 dyp = subs(dy, x)
 % line plot
 plot(x,dyp)
+
+% OCTAVE Funcs
+p = [3 -2.23 -5.1 9.8]
+x = linspace(-1,1,10)
+y = polyval(p,x)
+plot(x,y,'r')
+hold on
+k = roots(p)
+plot(k, 'o')
+
+% integral 
+syms x
+int(sin(x^3 - 7 * x), x)
+
+% double integral
+% q = dblquad(fun,xmin,xmax,ymin,ymax)
+f = @(x,y) sqrt(x.^2+ 4./y.^2)
+dblquad(f,3,4,1,2) % not recommended
+integral2(f,3,4,1,2)
 
 
