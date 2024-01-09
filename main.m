@@ -73,5 +73,14 @@ f = @(x,y) sqrt(x.^2+ 4./y.^2)
 dblquad(f,3,4,1,2) % not recommended
 integral2(f,3,4,1,2)
 
+% Area calculation with Trapezoidal Rule
+x = linspace(0,4,101)
+y = exp(-x) .* sin(3*x)
+plot(x,y)
+% Area is:
+A = (x(2:end) - x(1:end-1)) .* (y(2:end) + y(1:end-1)) / 2
+sum(A)
+% or 
+trapz(x,y)
 
 
