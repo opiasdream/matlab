@@ -59,15 +59,19 @@ plot(x,y,'r')
 hold on
 k = roots(p)
 plot(k, 'o')
-
 % integral 
 syms x
 int(sin(x^3 - 7 * x), x)
 
-% double integral
+% Anonymous Function 
+f = @(x) (x.^2 .* log(x))./(x+1)
+integral(f,1,3)
+
+% double integral w. anonymous func.
 % q = dblquad(fun,xmin,xmax,ymin,ymax)
 f = @(x,y) sqrt(x.^2+ 4./y.^2)
 dblquad(f,3,4,1,2) % not recommended
 integral2(f,3,4,1,2)
+
 
 
