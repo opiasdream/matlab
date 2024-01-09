@@ -77,7 +77,7 @@ integral2(f,3,4,1,2)
 x = linspace(0,4,101)
 y = exp(-x) .* sin(3*x)
 plot(x,y)
-% Area is:
+% according to Trapezoidal Rule:
 A = (x(2:end) - x(1:end-1)) .* (y(2:end) + y(1:end-1)) / 2
 sum(A)
 % or 
